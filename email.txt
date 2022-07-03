@@ -1,0 +1,12 @@
+%{
+#include <stdio.h>
+%}
+gml("@gmail.com")
+eml[a-z A-z,0-9,_]
+%%
+{eml}({eml}*{gml}){printf("%s is valid email",yytext);}
+%%
+main()
+{
+yylex();
+}

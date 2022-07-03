@@ -1,0 +1,16 @@
+%{
+#include<stdio.h>
+%}
+letter[a-z A-z]
+digit[0-9]
+%%
+{letter}({letter}|{digit})* { printf("\n %s is an identifier",yytext);}
+%%
+int yywrap()
+{
+return 0;
+}
+void main()
+{
+yylex();
+}

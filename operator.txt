@@ -1,0 +1,24 @@
+%{
+#include<stdio.h>
+%}
+aop[+ - * / %]
+bop(">>"|"<<"|!|^|&|"|")
+rop(>|<|">="|"<="|"=="|"!=")
+lop("&&"|"||"|!)
+assop(=|"+="|"-="|"/="|"*="|"%=")
+cop("?:")
+idop("++"|"--")
+%%
+{aop}  {printf("%s is an arithmetic operator",yytext);}
+{bop}  {printf("%s is a bitwise operator",yytext);}
+{rop}  {printf("%s is a relational operator",yytext);}
+{lop}  {printf("%s is a logical operator",yytext);}
+{assop}  {printf("%s is an assignment operator",yytext);}
+{cop}  {printf("%s is a conditional operator",yytext);}
+{idop}  {printf("%s is a increment decrement operator",yytext);}
+%%
+main()
+{
+yylex();
+}
+ 
